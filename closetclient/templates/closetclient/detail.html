@@ -1,24 +1,24 @@
-<!-- empty form that user fills out to add items -->
+<!-- empty form user fills, adds item -->
+
 
 <h1>{{ category.category_name }}</h1>
 
+
+<h1>Your in the details view</h1>
+
 {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+
 
 <form action="{% url 'closetclient:item_count' category.id %}" method="post">
 {% csrf_token %}
 {% for item in category.item_set.all %}
+
     <input type="radio" name="item" id="item{{ forloop.counter }}" value="{{ item.id }}" />
-    <label for="item{{ forloop.counter }}">{{ item.item_name }}</label><br />
+
+    <label for="item{{ forloop.counter }}">{{ item.item_name }}</label>
+    <br />
+<input type="submit" value="View Item" />
 {% endfor %}
-<input type="submit" value="item_count" />
 </form>
 
 
-
-<!-- 
-<h1>{{ category.category_name }}</h1>
-<ul>
-  {% for item in category.item_set.all %}
-    <li>{{ item.item_name }}</li>
-    {% endfor %}
-</ul> -->

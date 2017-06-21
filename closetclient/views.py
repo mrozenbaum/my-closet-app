@@ -2,6 +2,8 @@ from django.shortcuts import get_object_or_404, render
 from django.http import HttpResponseRedirect, HttpResponse
 from django.template import loader
 from django.urls import reverse
+from django.http import Http404
+
 
 from .models import Category, Item
 # Create your views here.
@@ -22,7 +24,7 @@ def detail(request, category_id):
     context = {
         'single_category': single_category,
     }
-    return render(request, 'closetclient/details.html', context)
+    return render(request, 'closetclient/detail.html', context)
 
 
 def results(request, category_id):
@@ -39,12 +41,12 @@ def item_count(request, category_id):
         selected_item = category.item_set.get(pk=request.POST['item'])
     except (KeyError, Item.DoesNotExist):
         # redisplay the category item form
-        return render(request, 'closetclient:details.html', {
+        return render(request, 'closetclient/detail.html', {
             'category': category,
-            'error_message': "You didnt select an item.",
+            'error_message': "You have not selected an item.",
         })
     else:
-        selected_item.item += 1
+        selected_item.item_count += 1
         selected_item.save()
         # return an HttpResponseRedirect after successfully dealing with POST data. prevents data from being posted twice if a user hits the back button.       
     return HttpResponseRedirect(reverse('closetclient:results', args=(category.id,)))
