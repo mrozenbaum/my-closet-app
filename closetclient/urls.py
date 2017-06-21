@@ -10,5 +10,5 @@ urlpatterns = [
     # ex: /closetclient/5/results/
     url(r'^(?P<category_id>[0-9]+)/results/$', views.results, name='results'),
     # ex: /closetclient/5/vote/
-    url(r'^(?P<category_id>[0-9]+)/vote/$', views.item_count, name='vote'),
+    url(r'^(?P<category_id>[0-9]+)/item_count/$', views.item_count, name='item_count'),
 ]

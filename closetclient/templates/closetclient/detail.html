@@ -1,0 +1,9 @@
+{% if single_category %}
+    <ul>
+    {% for category in single_category_list %}
+        <li><a href="/closetclient/{{ category.id }}/">{{ category.category_name }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No categories are available.</p>
+{% endif %}
