@@ -1,8 +1,9 @@
-from django.shortcuts import render
-from django.http import HttpResponse
+from django.shortcuts import get_object_or_404, render
+from django.http import HttpResponseRedirect, HttpResponse
 from django.template import loader
+from django.urls import reverse
 
-from .models import Category
+from .models import Category, Item
 # Create your views here.
 
 
@@ -26,9 +27,34 @@ def detail(request, category_id):
 
 def results(request, category_id):
     ''' displays Item results for a specific Category in closetclient/results.html '''
-    response = "You're looking at the results of category %s."
-    return HttpResponse(response % category_id)
-# item count action
+    category = get_object_or_404(Category, pk=category_id)
+    return render(request, 'closetclient:results.html', {'category': category})
+
+
+# item_count action
 def item_count(request, category_id):
     ''' handles "item_count" for a particular "item_name" in a specific Category '''
-    return HttpResponse("You're item_count on category %s." % category_id)
+    category = get_object_or_404(Category, pk=category_id)
+    try:
+        selected_item = category.item_set.get(pk=request.POST['item'])
+    except (KeyError, Item.DoesNotExist):
+        # redisplay the category item form
+        return render(request, 'closetclient:details.html', {
+            'category': category,
+            'error_message': "You didnt select an item.",
+        })
+    else:
+        selected_item.item += 1
+        selected_item.save()
+        # return an HttpResponseRedirect after successfully dealing with POST data. prevents data from being posted twice if a user hits the back button.       
+    return HttpResponseRedirect(reverse('closetclient:results', args=(category.id,)))
+
+
+
+
+
+
+
+
+
+

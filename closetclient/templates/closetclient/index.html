@@ -1,7 +1,7 @@
 {% if latest_category_list %}
     <ul>
     {% for category in latest_category_list %}
-        <li><a href="/closetclient/{{ category.id }}/">{{ category.category_name }}</a></li>
+        <li><a href="{% url 'closetclient:detail' category.id %}">{{ category.category_name }}</a></li>
     {% endfor %}
     </ul>
 {% else %}

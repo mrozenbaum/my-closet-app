@@ -1,0 +1,9 @@
+<h1>{{ category.category_name }}</h1>
+
+<ul>
+{% for item in category.item_set.all %}
+    <li>{{ item.item_name }} -- {{ item.item_count }} item_count{{ item.item_count|pluralize }}</li>
+{% endfor %}
+</ul>
+
+<a href="{% url 'closetclient:detail' category.id %}">Add another item?</a>
