@@ -20,7 +20,7 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     url(r'^closetclient/', include('closetclient.urls')),
-    url(r'^admin/', admin.site.urls),
+    url(r'^admin/mycloset', admin.site.urls),
     url(r'^admin/base_site', admin.site.urls),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 

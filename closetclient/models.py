@@ -1,11 +1,13 @@
 from django.db import models
+from django.contrib.auth.models import User
+from django.db.models.signals import post_save
+from django.dispatch import receiver
 from django.utils.encoding import python_2_unicode_compatible
 import datetime
 from django.utils import timezone
 
 
 # Create your models here.
-
 
 class Category(models.Model):
     """ adds a Category model to our SQLite database """
