@@ -1,0 +1,8 @@
+MANIFEST.in
+README.rst
+setup.py
+closetclient/static/.DS_Store
+django_closetclient.egg-info/PKG-INFO
+django_closetclient.egg-info/SOURCES.txt
+django_closetclient.egg-info/dependency_links.txt
+django_closetclient.egg-info/top_level.txt
