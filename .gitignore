@@ -8,3 +8,4 @@ obj
 *.sqlite3
 closetclient/migrations/*.py
 media/images
+
