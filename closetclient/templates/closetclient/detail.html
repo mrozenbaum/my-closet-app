@@ -12,12 +12,12 @@
 <form action="{% url 'closetclient:item_count' category.id %}" method="post">
 {% csrf_token %}
 {% for item in category.item_set.all %}
-
+    <br />
     <input type="radio" name="item" id="item{{ forloop.counter }}" value="{{ item.id }}" />
-
+    <br />
     <label for="item{{ forloop.counter }}">{{ item.item_name }}</label>
     <br />
-<input type="submit" value="View Item" />
+<input type="submit" value="View Item's" />
 {% endfor %}
 </form>
 

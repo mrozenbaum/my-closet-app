@@ -8,7 +8,7 @@ from django.utils import timezone
 
 
 class Category(models.Model):
-    """Adds a Category model to our SQLite database."""
+    """ adds a Category model to our SQLite database """
     category_name = models.CharField(max_length=50)
     pub_date = models.DateTimeField('date added')
 
@@ -26,7 +26,7 @@ class Category(models.Model):
 
 
 class Item(models.Model):
-    """Adds an Item model to our SQLite database."""
+    """ adds an Item model to our SQLite database """
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     item_name = models.CharField(max_length=200)
     item_count = models.IntegerField(default=0)
