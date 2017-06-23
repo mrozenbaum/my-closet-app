@@ -1,0 +1,15 @@
+{% extends 'static/closetclient/base.html' %}
+{% block content %}
+
+  <h2>Sign up</h2>
+
+  <h2>Sign up</h2>
+    <form method="post" action="{% url 'users:signup' %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+          <button type="submit">Sign up</button>
+          <input type="hidden" name="next" value="{% url 'closetclient:index' %}" />
+
+      </form>
+
+{% endblock content %}

@@ -3,5 +3,10 @@ li a {
 }
 
 body {
-    background: white url("images/background.gif") no-repeat right bottom;
+    background: white url("images/background.gif") no-repeat center bottom;
+    padding-top: 70px;
+}
+
+h1 a {
+    color: #FCA205;
 }

@@ -1,9 +1,12 @@
 from django.conf.urls import url
-
+# from django.contrib.auth import views as auth_views
+from django.contrib import admin
 from . import views
+
 
 app_name = 'closetclient'
 urlpatterns = [
+    url(r'^admin/', admin.site.urls),
     # ex: /closetclient/
     url(r'^$', views.IndexView.as_view(), name='index'),
     # ex: /closetclient/5/

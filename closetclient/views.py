@@ -3,12 +3,14 @@ from django.http import HttpResponseRedirect
 from django.urls import reverse
 from django.views import generic
 from django.utils import timezone
+from django.contrib.auth.decorators import login_required
+
 
 
 from .models import Category, Item
 # Create your views here.
 
-
+@login_required
 class IndexView(generic.ListView):
     ''' 
     displays latest nine Categorys in closetclient/index.html '''
@@ -22,7 +24,7 @@ class IndexView(generic.ListView):
         """
         return Category.objects.filter(pub_date__lte=timezone.now()).order_by('-pub_date')[:9]
 
-
+@login_required
 class DetailView(generic.DetailView):
     ''' 
     displays single Category form in closetclient/details.html '''
@@ -36,13 +38,10 @@ class DetailView(generic.DetailView):
         return Category.objects.filter(pub_date__lte=timezone.now())
 
 
-
+@login_required
 class ResultsView(generic.DetailView):
     model = Category
     template_name = 'closetclient/results.html'
-
-
-
 
 
 # item_count action

@@ -1,0 +1,47 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+
+<html>
+<head>
+<title>My Closet App</title>
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+<link rel="stylesheet" type="text/css" href="{% static 'closetclient/style.css' %}" />
+</head>
+<body>
+  <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12">
+          <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container-fluid">
+              <div class="navbar-header">
+                <h1>
+                  <a class="navbar-brand" href="#">MyCloset
+                  </a>
+                </h1>
+                
+                <button type="button" class="btn btn-default navbar-btn navbar-right">Signin</button>
+                
+              </div>
+            </div>
+          </nav>
+      </div>
+    </div>
+  </div> 
+
+    
+    <div class="container-fluid">
+      <div class="content container">
+          <div class="row">
+              <div class="col-md-10">
+              {% block content %}
+              {% endblock %}
+              </div>
+          </div>
+      </div>
+    </div>
+
+
+
+</body>
+</html>

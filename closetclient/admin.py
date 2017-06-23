@@ -8,7 +8,7 @@ from .models import Category, Item
 # admin.site.register(Category)
 admin.site.register(Item)
 
- # This tells Django: Item objects are edited on the Category admin page. By default, provide enough fields for 5 items.”
+ # This tells Django: Item objects are edited on the Category admin page. By default, provide enough fields for 5 items (3 default).”
 class ItemInline(admin.TabularInline):
     model = Item
     extra = 2

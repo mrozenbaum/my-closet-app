@@ -17,10 +17,16 @@ from django.conf.urls import include, url
 from django.contrib import admin
 from django.conf import settings
 from django.conf.urls.static import static
+from django.contrib.auth import views as auth_views
+
+
+admin.autodiscover()
+
+
 
 urlpatterns = [
-    url(r'^closetclient/', include('closetclient.urls')),
     url(r'^admin/', admin.site.urls),
-    url(r'^admin/base_site', admin.site.urls),
+    url(r'^users/', include('users.urls', namespace='users')),
+    url(r'', include('closetclient.urls', namespace='closetclient')),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 

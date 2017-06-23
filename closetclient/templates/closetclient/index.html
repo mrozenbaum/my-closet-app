@@ -1,16 +1,21 @@
-{% load static %}
-
-<link rel="stylesheet" type="text/css" href="{% static 'closetclient/style.css' %}" />
-<h1>Your at the index view</h1>
+{% extends 'closetclient/base.html' %}  
 
 
-{% if latest_category_list %}
+{% block content %}
+    {% if latest_category_list %}
     <!-- the index is directed to show the detail.html view -->
-    <ul>
-    {% for category in latest_category_list %}
-        <li><a href="{% url 'closetclient:detail' category.id %}">{{ category.category_name }}</a></li>
-    {% endfor %}
-    </ul>
-{% else %}
-    <p>No categories are available.</p>
-{% endif %}
+    <div class="row">
+      <div class="col-md-12">
+        {% for category in latest_category_list %}
+        <ul>
+          <div class="center"
+          <li><a href="{% url 'closetclient:detail' category.id %}">{{ category.category_name }}</a></li>
+        {% endfor %}
+        </ul>
+        {% else %}
+        <p>No categories are available.</p>
+        {% endif %}
+      </div>
+    </div>
+
+{% endblock content %}      
