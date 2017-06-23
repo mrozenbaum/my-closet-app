@@ -1,0 +1,50 @@
+Metadata-Version: 1.1
+Name: django-closetclient
+Version: 0.1
+Summary: A simple Django app to conduct Web-based Closet Categories, Items.
+Home-page: https://www.example.com/
+Author: Miriam Rozenbaum
+Author-email: mirirozenbaum5@gmail.com
+License: BSD License
+Description: =====
+        ClosetClient
+        =====
+        
+        ClosetClient is a simple Django app to conduct Web-based categories, and items. where users can add items to their categories and keep track of their "closet's" inventory!. For each
+        category, visitors can choose between a fixed number of answers(items)
+        
+        Detailed documentation is in the "docs" directory.
+        
+        Quick start
+        -----------
+        
+        1. Add "closetclient" to your INSTALLED_APPS setting like this::
+        
+            INSTALLED_APPS = [
+                ...
+                'closetclient',
+            ]
+        
+        2. Include the closetclient URLconf in your project urls.py like this::
+        
+            url(r'^closetclient/', include('closetclient.urls')),
+        
+        3. Run `python manage.py migrate` to create the closetclient models.
+        
+        4. Start the development server and visit http://127.0.0.1:8000/admin/
+           to create a ClosetClient (you'll need the Admin app enabled).
+        
+        5. Visit http://127.0.0.1:8000/polls/ to participate in ClosetClient.
+Platform: UNKNOWN
+Classifier: Environment :: Web Environment
+Classifier: Framework :: Django
+Classifier: Framework :: Django :: X.Y
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Topic :: Internet :: WWW/HTTP
+Classifier: Topic :: Internet :: WWW/HTTP :: Dynamic Content
